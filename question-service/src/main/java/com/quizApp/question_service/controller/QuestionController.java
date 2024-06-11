@@ -6,6 +6,7 @@ import com.quizApp.question_service.entity.QuestionWrapper;
 import com.quizApp.question_service.entity.Response;
 import com.quizApp.question_service.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +19,17 @@ public class QuestionController {
     @Autowired
     QuestionService qserv;
 
+    @Autowired
+    Environment environment;
+
+    @GetMapping("test")
+    public void getTest(){
+        System.out.println("Test");
+    }
+
     @GetMapping("allQuestions")
     public ResponseEntity<List<Question>> allQuestions(){
+        System.out.println(environment.getProperty("local.server.port"));
         return qserv.getAllQuestions();
     }
 

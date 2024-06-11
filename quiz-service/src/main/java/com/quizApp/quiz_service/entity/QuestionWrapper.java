@@ -1,4 +1,4 @@
-package entity;
+package com.quizApp.quiz_service.entity;
 
 import lombok.Data;
 

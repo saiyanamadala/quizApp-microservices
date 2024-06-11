@@ -1,4 +1,4 @@
-package entity;
+package com.quizApp.quiz_service.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -14,6 +14,7 @@ public class Quiz {
     private Integer id;
     private String title;
 
-    @ManyToMany
-    //private List<Question> questions;
+    //@ManyToMany
+    @ElementCollection
+    private List<Integer> questionIds;
 }
